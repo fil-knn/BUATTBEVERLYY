@@ -182,7 +182,9 @@
 
 <script>
 const bgMusic = document.getElementById("bgMusic");
-bgMusic.volume = 0.6;
+
+// start muted for fade-in
+bgMusic.volume = 0;
 
 function enableMusicAfterLoading() {
     const startMusic = () => {
@@ -194,9 +196,8 @@ function enableMusicAfterLoading() {
     document.addEventListener("click", startMusic);
     document.addEventListener("touchstart", startMusic);
 }
-</script>
-<script>
-bgMusic.volume = 0;
+
+// fade in smoothly after play
 bgMusic.addEventListener("play", () => {
     let v = 0;
     const fade = setInterval(() => {
@@ -209,6 +210,7 @@ bgMusic.addEventListener("play", () => {
     }, 120);
 });
 </script>
+
 
     <script src="script.js"></script>
 </body>
