@@ -68,7 +68,8 @@ function simulateLoading() {
             
             // Add completion animation
             loadingScreen.classList.add('loading-complete');
-            
+            enableMusicAfterLoading();
+
             // Wait for completion animation, then transition
             setTimeout(() => {
                 transitionToMainScreen();
@@ -104,6 +105,7 @@ function transitionToMainScreen() {
         
     }, 600);
 }
+
 
 function initializeMainScreen() {
     // Add interactive elements and event listeners
@@ -183,6 +185,8 @@ function showScreen(screenName) {
         }
     }
 }
+
+
 
 // Message Page Functions
 function initializeMessage() {
