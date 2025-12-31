@@ -1048,7 +1048,7 @@ function addTetrisListeners() {
     const leftBtn = document.getElementById('left-btn');
     const rightBtn = document.getElementById('right-btn');
     const rotateBtn = document.getElementById('rotate-btn');
-    const rightBtn = document.getElementById('down-btn');
+    const downBtn = document.getElementById('down-btn');
     if (leftBtn) {
         leftBtn.addEventListener('click', function() {
             moveTetrisPiece('left');
