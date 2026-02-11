@@ -193,14 +193,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(255, 0, 0, 0.8);
             color: #fff;
-            padding: 20px 40px;
+            padding: 10px 20px; /* Smaller padding */
             border-radius: 20px;
-            font-size: 1.5rem;
+            font-size: 1rem; /* Smaller font size */
             display: none;
             z-index: 1000;
             animation: shake 0.5s;
+            background: none; /* Removed background */
+            text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Optional shadow for visibility */
         }
         @keyframes shake {
             0% { transform: translate(-50%, -50%) rotate(0deg); }
@@ -209,7 +210,7 @@
             75% { transform: translate(-50%, -50%) rotate(-5deg); }
             100% { transform: translate(-50%, -50%) rotate(0deg); }
         }
-        /* Updated PIN section styles to match the image */
+        /* PIN section styles */
         #pin-section {
             text-align: center;
             padding: 40px;
@@ -286,6 +287,30 @@
             font-size: 1.2rem;
             display: none;
         }
+        /* New: Music button */
+        #music-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s;
+            display: none; /* Hidden initially, shown after entering */
+        }
+        #music-btn:hover {
+            transform: scale(1.1);
+        }
+        #music-icon {
+            font-size: 1.5rem;
+        }
         /* Mobile */
         @media (max-width: 768px) {
             h1 { font-size: 4rem; }
@@ -298,27 +323,38 @@
 </head>
 <body>
 
+    <!-- New: Background music -->
+    <audio id="bg-music" loop>
+        <source src="https://example.com/your-chosen-music.mp3" type="audio/mpeg"> <!-- Replace with your music URL (upload to a host like SoundCloud or free audio host) -->
+    </audio>
+
+    <!-- New: Music control button -->
+    <div id="music-btn">
+        <span id="music-icon">🎶</span>
+    </div>
+
     <header id="landing">
         <h1>alooo Beverlyyy,</h1>
         <div id="typewriter"></div>
-        <button class="enter-btn" onclick="enterSite()">Pencett inii, hopee u likee it. </button>
+        <button class="enter-btn" onclick="enterSite()">Pencett inii, hope u likee it.</button>
     </header>
 
     <div class="container" id="content" style="display:none;">
-        <!-- Question section -->
+        <!-- Question section (second page) -->
         <section id="question-section">
-            <h2>sebelummnyaa, do u lovee me?</h2>
+            <h2>sebelumnya, do u love me?</h2>
+            <!-- New: Snoopy GIF -->
+            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/64bb1c0d-1425-430f-bad8-532b357a6d90/df77l3i-e14f9b84-9b9b-49ca-8c6a-fb56ee43e674.gif" alt="Snoopy GIF" style="width:200px; margin-bottom:30px; border-radius:20px;">
             <div class="buttons">
-                <button id="yes-btn" class="btn" onclick="proceedYes()">YESSS</button>
-                <button id="no-btn" class="btn" onclick="pressNo()">NO!</button>
+                <button id="yes-btn" class="btn" onclick="proceedYes()">YESS</button>
+                <button id="no-btn" class="btn" onclick="pressNo()">NO!😔</button>
             </div>
         </section>
 
-        <!-- Updated: PIN section like the image -->
+        <!-- PIN section -->
         <section id="pin-section" style="display:none;">
-            <h3>i have a message for u</h3>
-            <p>Type the password to continue (hint: hari spesial kita)</p>
-            <div class="envelope">📩❤️</div>
+            <h3>YAYY, i have a message for u</h3>
+            <p>Type the password to continue (hint: 8 ANGKAA YANGG I MINTAA)</p>
             <div class="pin-display">
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -343,7 +379,7 @@
                 <button class="key-btn" onclick="addDigit(0)">0</button>
                 <button class="open-btn key-btn" onclick="checkPin()">OPEN</button>
             </div>
-            <div id="pin-error">PIN salah! Coba lagi 🥺</div>
+            <div id="pin-error">PIN salah! Coba lagi </div>
         </section>
 
         <section id="letter" style="display:none;">
@@ -396,11 +432,11 @@
     </div>
 
     <!-- Sad popup -->
-    <div id="sad-popup">Masaaa..?</div>
+    <div id="sad-popup"></div>
 
     <script>
         // Typewriter effect
-        const text = "JADII KARENAA HARII INII VALENNTINEE N KITAA SANGAATT JAUHH, i cumann bisaa kasiihh inii hehe";
+        const text = "JADII KARENAA HARII INII VALENTINEE N KITAA SANGATT JAUHH, i cumaa bisaa kasii inii hehe.";
         let i = 0;
         function typeWriter() {
             if (i < text.length) {
@@ -415,6 +451,8 @@
         function enterSite() {
             document.getElementById("landing").style.display = "none";
             document.getElementById("content").style.display = "block";
+            // Show music button after entering
+            document.getElementById("music-btn").style.display = "flex";
             // Keeps image background
             setTimeout(() => {
                 document.getElementById("question-section").classList.add("visible");
@@ -423,10 +461,20 @@
 
         // Question logic
         let yesScale = 1;
+        const sadMessages = [
+            "YAHH.., lagii dongg",
+            "GAMAUU YANGG LAINN NII?",
+            "ITUU YANGG KIRII DONGG",
+            "BENERANN GAMAUU YANGG KIRII?",
+            "JANGANN YANGG INII PLSS"
+        ];
         function pressNo() {
             yesScale += 0.2;
             document.getElementById("yes-btn").style.transform = `scale(${yesScale})`;
             const popup = document.getElementById("sad-popup");
+            // Pick random message
+            const randomMsg = sadMessages[Math.floor(Math.random() * sadMessages.length)];
+            popup.textContent = randomMsg;
             popup.style.display = "block";
             setTimeout(() => popup.style.display = "none", 2000);
         }
@@ -439,7 +487,7 @@
             }, 300);
         }
 
-        // Updated PIN logic with keypad
+        // PIN logic with keypad
         let enteredPin = '';
         const correctPin = '12345678'; // Replace with actual PIN (e.g., '20230214' for Feb 14, 2023)
         const dots = document.querySelectorAll('.pin-display .dot');
@@ -510,6 +558,19 @@
                 setTimeout(() => c.remove(), 5000);
             }
         }
+
+        // New: Music control
+        const audio = document.getElementById('bg-music');
+        const musicIcon = document.getElementById('music-icon');
+        document.getElementById('music-btn').addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                musicIcon.textContent = '⏸️';
+            } else {
+                audio.pause();
+                musicIcon.textContent = '🎶';
+            }
+        });
     </script>
 </body>
 </html>
