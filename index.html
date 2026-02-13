@@ -100,6 +100,27 @@
             line-height: 2;
             font-size: 1.3rem;
         }
+        
+        .special-link-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #FF4D7D, #FF1493);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255,77,125,0.4);
+        }
+        
+        .special-link-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(255,77,125,0.6);
+        }
+        
         .photos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -142,7 +163,6 @@
         .big-heart:hover {
             transform: scale(1.3) rotate(10deg);
         }
-        /* Falling hearts */
         .heart-fall {
             position: fixed;
             font-size: 28px;
@@ -155,7 +175,6 @@
             0% { transform: translateY(-100vh) rotate(0deg); }
             100% { transform: translateY(100vh) rotate(360deg); }
         }
-        /* Question section styles */
         #question-section {
             text-align: center;
             padding: 50px;
@@ -194,14 +213,14 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: #fff;
-            padding: 10px 20px; /* Smaller padding */
+            padding: 10px 20px;
             border-radius: 20px;
-            font-size: 1rem; /* Smaller font size */
+            font-size: 1rem;
             display: none;
             z-index: 1000;
             animation: shake 0.5s;
-            background: rgba(0, 0, 0, 0.4); /* Removed background */
-            text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Optional shadow for visibility */
+            background: rgba(0, 0, 0, 0.4);
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
         @keyframes shake {
             0% { transform: translate(-50%, -50%) rotate(0deg); }
@@ -210,17 +229,16 @@
             75% { transform: translate(-50%, -50%) rotate(-5deg); }
             100% { transform: translate(-50%, -50%) rotate(0deg); }
         }
-        /* PIN section styles */
         #pin-section {
             text-align: center;
             padding: 40px;
-            background: rgba(0, 0, 0, 0.4); /* Deep/dark overlay like landing */
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 20px;
             backdrop-filter: blur(10px);
             max-width: 400px;
             margin: 0 auto;
         }
-        #pin-section h3 { /* Changed to h3 for smaller title */
+        #pin-section h3 {
             font-size: 1.8rem;
             margin-bottom: 10px;
             color: #fff;
@@ -230,10 +248,6 @@
             margin-bottom: 20px;
             opacity: 0.8;
             color: #ddd;
-        }
-        .envelope {
-            font-size: 3rem;
-            margin-bottom: 20px;
         }
         .pin-display {
             display: flex;
@@ -268,6 +282,7 @@
             cursor: pointer;
             transition: background 0.3s;
             backdrop-filter: blur(5px);
+            border: none;
         }
         .key-btn:hover {
             background: rgba(255,255,255,0.4);
@@ -287,7 +302,6 @@
             font-size: 1.2rem;
             display: none;
         }
-        /* New: Music button */
         #music-btn {
             position: fixed;
             top: 20px;
@@ -303,7 +317,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             transition: all 0.3s;
-            display: none; /* Hidden initially, shown after entering */
+            display: none;
         }
         #music-btn:hover {
             transform: scale(1.1);
@@ -312,7 +326,7 @@
             font-size: 1.5rem;
         }
         
-        /* CLAW MACHINE STYLES - Heart Chaser Design */
+        /* CLAW MACHINE STYLES */
         #claw-game-section {
             text-align: center;
             padding: 50px 20px;
@@ -598,7 +612,6 @@
             animation: fadeIn 0.5s;
         }
         
-        /* Floating hearts background */
         #mail-popup::before {
             content: '💕';
             position: absolute;
@@ -634,6 +647,7 @@
             width: 500px;
             max-width: 90%;
             animation: mailAppear 1s ease-out;
+            margin: 0 auto;
         }
         
         @keyframes mailAppear {
@@ -668,15 +682,6 @@
         .envelope.opening .envelope-flap-top {
             transform: rotateX(-180deg);
             z-index: -1;
-        }
-        
-        @keyframes flapOpen {
-            0% { 
-                transform: rotateX(0deg);
-            }
-            100% { 
-                transform: rotateX(-180deg);
-            }
         }
         
         .envelope-body {
@@ -754,6 +759,7 @@
             height: 110%;
             border-radius: 50%;
             border: 2px dashed rgba(255,255,255,0.3);
+            pointer-events: none;
         }
         
         .letter-paper {
@@ -830,127 +836,166 @@
             opacity: 0;
         }
         
-        @keyframes paperPeek {
-            0% { height: 60px; }
-            100% { height: 120px; }
-        }
-        
-        .sweet-message {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            color: #764ba2;
-            font-weight: 600;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 10;
-        }
-        
-        .letter-subtitle {
-            font-size: 1rem;
-            color: #D68FB5;
-            font-style: italic;
-            position: relative;
-            z-index: 10;
-        }
-        
         /* Mobile */
         @media (max-width: 768px) {
-            h1 { font-size: 4rem; }
-            h2 { font-size: 3.5rem; }
-            #typewriter { font-size: 1.5rem; }
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 3rem; }
+            #typewriter { font-size: 1.3rem; }
             .btn { font-size: 1.2rem; padding: 10px 30px; }
             .key-btn { font-size: 1.2rem; padding: 10px; }
-            .game-title { font-size: 2.5rem; }
-            .game-subtitle { font-size: 1.1rem; }
+            .letter { font-size: 1.1rem; padding: 25px; }
+            
+            .game-title { font-size: 2.2rem; }
+            .game-subtitle { font-size: 1rem; }
+            
             .claw-machine { 
-                max-width: 95%; 
-                height: 550px; 
+                width: 95%;
+                max-width: 380px;
+                height: 480px;
                 border-width: 10px;
             }
+            
             .machine-header {
-                width: 120px;
-                height: 80px;
-                top: -40px;
+                width: 100px;
+                height: 70px;
+                top: -35px;
             }
+            
             .machine-header::after {
-                font-size: 2.5rem;
-            }
-            .game-area {
-                height: 350px;
-            }
-            .controls-panel {
-                bottom: 30px;
-                padding: 15px;
-                flex-direction: column;
-                gap: 15px;
-            }
-            .direction-btns {
-                padding: 10px;
-            }
-            .arrow-btn { 
-                width: 50px; 
-                height: 50px; 
-                font-size: 1.5rem; 
-            }
-            .seize-btn { 
-                padding: 15px 30px; 
-                font-size: 1.1rem; 
-                width: 100%;
-            }
-            .prize-heart {
-                font-size: 3rem;
-                bottom: 60px;
-            }
-            .instruction-box {
-                font-size: 0.8rem;
-                padding: 8px 15px;
-            }
-            .mail-container { 
-                width: 95%;
-                max-width: 400px;
-            }
-            .envelope { 
-                height: 300px;
-            }
-            .envelope-flap-top {
-                border-left: 200px solid transparent;
-                border-right: 200px solid transparent;
-                border-top: 150px solid #E91E63;
-            }
-            .envelope-sides {
-                border-left: 200px solid #FF8FB9;
-                border-right: 200px solid #FF8FB9;
-                border-bottom: 150px solid transparent;
-            }
-            .red-seal {
-                width: 80px;
-                height: 80px;
-                font-size: 1rem;
-            }
-            .letter-paper {
-                width: 80%;
-                height: 240px;
-                bottom: 40px;
-                opacity: 0;
-            }
-            .letter-paper::after {
                 font-size: 2rem;
-                top: 12px;
             }
-            .paper-content {
+            
+            .game-area {
+                height: 280px;
+                width: 92%;
+                margin: 25px auto 0;
+            }
+            
+            .rail {
+                top: 20px;
+                left: 8%;
+                width: 84%;
+            }
+            
+            .claw-slider {
+                top: 15px;
+            }
+            
+            .claw-head {
+                width: 45px;
+                height: 30px;
+            }
+            
+            .claw-string {
+                width: 3px;
+                height: 30px;
+            }
+            
+            .claw-hook::before,
+            .claw-hook::after {
+                font-size: 2.3rem;
+            }
+            
+            .prize-heart {
+                font-size: 2.8rem;
+                bottom: 55px;
+            }
+            
+            .instruction-box {
+                font-size: 0.75rem;
+                padding: 6px 10px;
+                bottom: 5px;
+            }
+            
+            .controls-panel {
+                bottom: 15px;
+                padding: 10px;
+                flex-direction: column;
+                gap: 10px;
+                width: 92%;
+            }
+            
+            .direction-btns {
+                padding: 8px;
+                gap: 6px;
+            }
+            
+            .arrow-btn { 
+                width: 48px; 
+                height: 48px; 
+                font-size: 1.4rem; 
+            }
+            
+            .center-btn {
+                font-size: 1.6rem;
+            }
+            
+            .seize-btn { 
+                padding: 12px 20px; 
+                font-size: 0.95rem; 
+                width: 100%;
+                letter-spacing: 0.5px;
+            }
+            
+            .game-status {
+                font-size: 1rem;
+                margin-top: 15px;
+                padding: 0 10px;
+            }
+            
+            .mail-container { 
+                width: 90%;
+                max-width: 350px;
+            }
+            
+            .envelope { 
+                height: 280px;
+            }
+            
+            .envelope-flap-top {
+               border-left: 150px solid transparent;
+               border-right: 150px solid transparent;
+               border-top: 120px solid #E91E63;
+            }
+
+            .envelope-sides {
+               border-left: 150px solid #FF8FB9;
+               border-right: 150px solid #FF8FB9;
+               border-bottom: 120px solid transparent;
+}
+            
+            .red-seal {
+                width: 75px;
+                height: 75px;
                 font-size: 0.95rem;
-                top: 60px;
-                left: 15px;
-                right: 15px;
             }
+            
+            .letter-paper {
+                width: 82%;
+                height: 220px;
+                bottom: 35px;
+            }
+            
+            .letter-paper::after {
+                font-size: 1.8rem;
+                top: 10px;
+            }
+            
+            .paper-content {
+                font-size: 0.9rem;
+                top: 55px;
+                left: 12px;
+                right: 12px;
+            }
+            
             .envelope.opening .letter-paper {
-                bottom: 40px;
-                opacity: 1;
+                bottom: 35px;
             }
         }
 
         #content {
             min-height: 100vh;
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -959,12 +1004,10 @@
 </head>
 <body>
 
-    <!-- New: Background music -->
     <audio id="bg-music" loop>
-        <source src="https://audio.jukehost.co.uk/meDJFPqrG4ED536Isai0StB6ENNwZMsT" type="audio/mpeg"> <!-- Replace with your music URL (upload to a host like SoundCloud or free audio host) -->
+        <source src="https://audio.jukehost.co.uk/meDJFPqrG4ED536Isai0StB6ENNwZMsT" type="audio/mpeg">
     </audio>
 
-    <!-- New: Music control button -->
     <div id="music-btn">
         <span id="music-icon">🎶</span>
     </div>
@@ -976,10 +1019,8 @@
     </header>
 
     <div class="container" id="content" style="display:none;">
-        <!-- Question section (second page) -->
         <section id="question-section">
             <h2>sebelumnya, do u love me?</h2>
-            <!-- New: Snoopy GIF -->
             <img src="https://media1.tenor.com/m/m1st4f2QovMAAAAC/love-you-sissy.gif" alt="Snoopy GIF" style="width:200px; margin-bottom:30px; border-radius:20px;">
             <div class="buttons">
                 <button id="yes-btn" class="btn" onclick="proceedYes()">YESS</button>
@@ -987,7 +1028,6 @@
             </div>
         </section>
 
-        <!-- PIN section -->
         <section id="pin-section" style="display:none;">
             <h3>YAYY, i have a somethingg for u</h3>
             <p>Type the password to continue (hint: 8 ANGKAA YANGG I MINTAA)</p>
@@ -1018,7 +1058,6 @@
             <div id="pin-error">PIN salah! Coba lagi </div>
         </section>
 
-        <!-- HEART CHASER CLAW MACHINE -->
         <section id="claw-game-section" style="display:none;">
             <h2 class="game-title">Heart Catcherr</h2>
             <p class="game-subtitle">Catch my heart if uu can! 🧸</p>
@@ -1055,7 +1094,6 @@
             <div class="game-status" id="gameStatus">PRESS "SEIZE MY HEART"!</div>
         </section>
 
-        <!-- MAIL POPUP -->
         <div id="mail-popup">
             <div class="mail-container">
                 <div class="envelope">
@@ -1086,18 +1124,22 @@
                 <p>HAPPYY VALENTINEE!!</p>
                 <br>
                 <p>Forever yourss,<br>Koo filbertt 🤍</p>
+                <br><br>
+                <div style="text-align: center;">
+                    <a href="https://YOUR-LINK-HERE.com" class="special-link-btn" target="_blank">
+                        Special Surprise 💝
+                    </a>
+                </div>
             </div>
         </section>
 
         <section id="memories" style="display:none;">
             <h2>NII FOTOO FOTOO</h2>
             <div class="photos">
-                <!-- Replace these links with your real photos (upload to imgur.com → right click → copy image address) -->
                 <img src="https://via.placeholder.com/400x500/FFB6C1/ffffff?text=Our+First+Date" alt="FIRSTT TIMEE WE TALKK">
                 <img src="https://via.placeholder.com/400x500/FF69B4/ffffff?text=That+Trip+Together" alt="MABARR EMELL">
                 <img src="https://via.placeholder.com/400x500/FFD1DC/ffffff?text=You+&+Me" alt="ROBLOXX">
                 <img src="https://via.placeholder.com/400x500/667eea/ffffff?text=Best+Day+Ever" alt="NEWW YEARR BARENGG">
-                <!-- Add as many as you want -->
             </div>
         </section>
 
@@ -1111,7 +1153,6 @@
                 <div class="reason">UR PERSONALITYY</div>
                 <div class="reason">EVERYYTHINGG ABOUTT UU</div>
                 <div class="reason">waitt, DID I MENTIONN PRETTY?</div>
-                <!-- Add more reasons here -->
             </div>
         </section>
 
@@ -1122,11 +1163,9 @@
         </section>
     </div>
 
-    <!-- Sad popup -->
     <div id="sad-popup"></div>
 
     <script>
-        // Typewriter effect
         const text = "JADII KARENAA HARII INII VALENTINEE N KITAA SANGATT JAUHH, i cumaa bisaa kasii inii hehe.";
         let i = 0;
         function typeWriter() {
@@ -1138,19 +1177,15 @@
         }
         typeWriter();
 
-        // Enter site
         function enterSite() {
             document.getElementById("landing").style.display = "none";
             document.getElementById("content").style.display = "flex";
-            // Show music button after entering
             document.getElementById("music-btn").style.display = "flex";
-            // Keeps image background
             setTimeout(() => {
                 document.getElementById("question-section").classList.add("visible");
             }, 300);
         }
 
-        // Question logic
         let yesScale = 1;
         const sadMessages = [
             "YAHH.., lagii dongg",
@@ -1163,7 +1198,6 @@
             yesScale += 0.2;
             document.getElementById("yes-btn").style.transform = `scale(${yesScale})`;
             const popup = document.getElementById("sad-popup");
-            // Pick random message
             const randomMsg = sadMessages[Math.floor(Math.random() * sadMessages.length)];
             popup.textContent = randomMsg;
             popup.style.display = "block";
@@ -1178,9 +1212,8 @@
             }, 300);
         }
 
-        // PIN logic with keypad
         let enteredPin = '';
-        const correctPin = '24985496'; // Replace with actual PIN (e.g., '20230214' for Feb 14, 2023)
+        const correctPin = '24985496';
         const dots = document.querySelectorAll('.pin-display .dot');
 
         function addDigit(digit) {
@@ -1211,22 +1244,19 @@
                 setTimeout(() => {
                     document.getElementById("pin-error").style.display = "none";
                 }, 2000);
-                // Optional: Shake animation or reset
             }
         }
 
-        // Falling hearts
         setInterval(() => {
             const heart = document.createElement("div");
             heart.className = "heart-fall";
-            heart.innerHTML = ["❤️","🅱️","💖","💌","✨","🤍"][Math.floor(Math.random()*5)];
+            heart.innerHTML = ["❤️","🅱️","💖","💌","✨","🤍"][Math.floor(Math.random()*6)];
             heart.style.left = Math.random() * 100 + "vw";
             heart.style.animationDuration = Math.random() * 4 + 4 + "s";
             document.body.appendChild(heart);
             setTimeout(() => heart.remove(), 10000);
         }, 400);
 
-        // Confetti burst
         function confettiBurst() {
             for(let j = 0; j < 80; j++) {
                 const c = document.createElement("div");
@@ -1243,8 +1273,7 @@
             }
         }
 
-        // HEART CHASER CLAW MACHINE GAME
-        let clawPosition = 50; // Percentage (50 = center)
+        let clawPosition = 50;
         let isSeizing = false;
         const clawSlider = document.getElementById('clawSlider');
         const clawString = document.getElementById('clawString');
@@ -1279,37 +1308,30 @@
             isSeizing = true;
             gameStatus.textContent = "SEDANGG MEREBUTT";
             
-            // Disable controls
             document.getElementById('btnLeft').disabled = true;
             document.getElementById('btnRight').disabled = true;
             document.getElementById('seizeBtn').disabled = true;
             
-            // Extend string down
             clawString.style.height = '200px';
             
             setTimeout(() => {
-                // Check if aligned with heart (heart is at center, 50%)
                 const distance = Math.abs(clawPosition - 50);
                 
                 if (distance < 15) {
-                    // Success! Caught the heart
                     gameStatus.textContent = "KERENNN!!";
                     prizeHeart.classList.add('caught');
                     
-                    // Move heart up with claw
                     setTimeout(() => {
                         clawString.style.height = '40px';
                         prizeHeart.style.bottom = '300px';
                         prizeHeart.style.left = clawPosition + '%';
                         
                         setTimeout(() => {
-                            // Show mail popup
                             showMailPopup();
                         }, 800);
                     }, 500);
                     
                 } else {
-                    // Missed! Try again
                     gameStatus.textContent = "YAHH TIDAA KENAA, lagii lagii";
                     
                     setTimeout(() => {
@@ -1319,7 +1341,6 @@
                             isSeizing = false;
                             gameStatus.textContent = "COBAA LAGIII!!";
                             
-                            // Re-enable controls
                             document.getElementById('btnLeft').disabled = false;
                             document.getElementById('btnRight').disabled = false;
                             document.getElementById('seizeBtn').disabled = false;
@@ -1332,7 +1353,6 @@
         function showMailPopup() {
             const mailPopup = document.getElementById('mail-popup');
             
-            // Reset any previous animations
             const envelope = mailPopup.querySelector('.envelope');
             envelope.classList.remove('opening');
             const letterPaper = mailPopup.querySelector('.letter-paper');
@@ -1349,21 +1369,15 @@
             const envelope = document.querySelector('.envelope');
             const letterPaper = document.querySelector('.letter-paper');
             
-            // Start opening animation
             envelope.classList.add('opening');
             
-            // After flap opens and paper extends, slide it out
             setTimeout(() => {
                 letterPaper.classList.add('slide-out');
                 
-                // After paper slides out, transition to letter page
                 setTimeout(() => {
                     document.getElementById('mail-popup').style.display = 'none';
-                    
-                    // Hide the claw game section
                     document.getElementById('claw-game-section').style.display = 'none';
                     
-                    // Change background and show all final sections
                     document.body.style.background = "linear-gradient(135deg, #ff9ec1, #ffd1dc)";
                     document.getElementById("letter").style.display = "block";
                     document.getElementById("memories").style.display = "block";
@@ -1378,7 +1392,6 @@
             }, 1500);
         }
 
-        // New: Music control
         const audio = document.getElementById('bg-music');
         const musicIcon = document.getElementById('music-icon');
         document.getElementById('music-btn').addEventListener('click', () => {
