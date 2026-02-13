@@ -667,6 +667,7 @@
         
         .envelope.opening .envelope-flap-top {
             transform: rotateX(-180deg);
+            z-index: -1;
         }
         
         @keyframes flapOpen {
@@ -757,7 +758,7 @@
         
         .letter-paper {
             position: absolute;
-            bottom: -300px;
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
             width: 85%;
@@ -770,7 +771,7 @@
             border: 2px solid #ffd1dc;
             border-bottom: none;
             overflow: hidden;
-            opacity: 0; /* Fix: Hide initially with opacity 0 */
+            opacity: 0;
         }
         
         .letter-paper::before {
@@ -821,7 +822,7 @@
         
         .envelope.opening .letter-paper {
             bottom: 50px;
-            opacity: 1; /* Fix: Fade in during opening */
+            opacity: 1;
         }
         
         .letter-paper.slide-out {
@@ -929,7 +930,8 @@
             .letter-paper {
                 width: 80%;
                 height: 240px;
-                bottom: -240px;
+                bottom: 40px;
+                opacity: 0;
             }
             .letter-paper::after {
                 font-size: 2rem;
@@ -943,6 +945,7 @@
             }
             .envelope.opening .letter-paper {
                 bottom: 40px;
+                opacity: 1;
             }
         }
     </style>
@@ -1327,11 +1330,15 @@
             envelope.classList.remove('opening');
             const letterPaper = mailPopup.querySelector('.letter-paper');
             letterPaper.classList.remove('slide-out');
+            const seal = mailPopup.querySelector('.red-seal');
+            seal.style.display = 'flex';
             
             mailPopup.style.display = 'flex';
         }
 
         function closeMail() {
+            const seal = document.querySelector('.red-seal');
+            seal.style.display = 'none';
             const envelope = document.querySelector('.envelope');
             const letterPaper = document.querySelector('.letter-paper');
             
