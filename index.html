@@ -853,15 +853,130 @@
             z-index: 10;
         }
         
-        /* Mobile */
+        /* Mobile adjustments - Enhanced for better responsiveness */
         @media (max-width: 768px) {
-            h1 { font-size: 4rem; }
-            h2 { font-size: 3.5rem; }
-            #typewriter { font-size: 1.5rem; }
-            .btn { font-size: 1.2rem; padding: 10px 30px; }
-            .key-btn { font-size: 1.2rem; padding: 10px; }
-            .game-title { font-size: 2.5rem; }
-            .game-subtitle { font-size: 1.1rem; }
+            body {
+                background-attachment: scroll; /* Prevent fixed background issues on some mobile browsers */
+            }
+            .container {
+                padding: 10px; /* Reduce padding for smaller screens */
+            }
+            header {
+                padding: 0 10px;
+                height: auto;
+                min-height: 100vh;
+            }
+            h1 { 
+                font-size: 4rem; 
+            }
+            h2 { 
+                font-size: 3.5rem; 
+                margin-bottom: 30px; /* Reduce margin */
+            }
+            #typewriter { 
+                font-size: 1.5rem; 
+                margin-bottom: 20px; /* Reduce margin */
+            }
+            .enter-btn {
+                padding: 10px 30px;
+                font-size: 1rem;
+            }
+            section {
+                margin: 60px 0; /* Reduce section margins for mobile */
+            }
+            .letter {
+                padding: 20px; /* Reduce padding */
+                font-size: 1.1rem;
+            }
+            .photos {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller min width for photos */
+                gap: 15px;
+            }
+            .reasons {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust reasons grid */
+                gap: 15px;
+            }
+            .reason {
+                padding: 20px 15px;
+                font-size: 1rem;
+            }
+            .big-heart {
+                font-size: 6rem; /* Smaller heart */
+                margin: 30px 0;
+            }
+            .heart-fall {
+                font-size: 20px; /* Smaller falling hearts */
+            }
+            #question-section {
+                padding: 30px 15px; /* Reduce padding */
+            }
+            #question-section h2 {
+                margin-bottom: 20px;
+            }
+            .buttons {
+                flex-direction: column; /* Stack buttons vertically if needed */
+                gap: 15px;
+            }
+            .btn { 
+                font-size: 1.2rem; 
+                padding: 10px 30px; 
+                width: 100%; /* Full width buttons */
+            }
+            #sad-popup {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            #pin-section {
+                padding: 30px 15px;
+                max-width: 100%; /* Full width on mobile */
+            }
+            #pin-section h3 {
+                font-size: 1.5rem;
+            }
+            #pin-section p {
+                font-size: 0.9rem;
+            }
+            .envelope {
+                font-size: 2.5rem;
+            }
+            .pin-display {
+                gap: 8px;
+            }
+            .dot {
+                width: 15px;
+                height: 15px;
+            }
+            .keypad {
+                gap: 10px;
+                max-width: 100%; /* Full width keypad */
+            }
+            .key-btn { 
+                font-size: 1.2rem; 
+                padding: 10px; 
+            }
+            #pin-error {
+                font-size: 1rem;
+            }
+            #music-btn {
+                top: 10px;
+                right: 10px;
+                width: 35px;
+                height: 35px;
+            }
+            #music-icon {
+                font-size: 1.2rem;
+            }
+            #claw-game-section {
+                padding: 30px 10px;
+                min-height: auto; /* Allow natural height */
+            }
+            .game-title { 
+                font-size: 2.5rem; 
+            }
+            .game-subtitle { 
+                font-size: 1.1rem; 
+                margin-bottom: 20px;
+            }
             .claw-machine { 
                 max-width: 95%; 
                 height: 550px; 
@@ -878,14 +993,47 @@
             .game-area {
                 height: 350px;
             }
+            .rail {
+                top: 20px;
+                height: 6px;
+            }
+            .claw-slider {
+                top: 10px;
+            }
+            .claw-head {
+                width: 50px;
+                height: 35px;
+            }
+            .claw-string {
+                height: 30px;
+            }
+            .claw-hook {
+                width: 40px;
+                height: 40px;
+            }
+            .claw-hook::before, .claw-hook::after {
+                font-size: 2.5rem;
+            }
+            .prize-heart {
+                font-size: 3rem;
+                bottom: 60px;
+            }
+            .instruction-box {
+                font-size: 0.8rem;
+                padding: 8px 15px;
+                bottom: 5px;
+            }
             .controls-panel {
                 bottom: 30px;
                 padding: 15px;
                 flex-direction: column;
                 gap: 15px;
+                width: 100%; /* Full width */
+                justify-content: center;
             }
             .direction-btns {
                 padding: 10px;
+                justify-content: center;
             }
             .arrow-btn { 
                 width: 50px; 
@@ -897,13 +1045,12 @@
                 font-size: 1.1rem; 
                 width: 100%;
             }
-            .prize-heart {
-                font-size: 3rem;
-                bottom: 60px;
+            .game-status {
+                margin-top: 20px;
+                font-size: 1.1rem;
             }
-            .instruction-box {
-                font-size: 0.8rem;
-                padding: 8px 15px;
+            #mail-popup::before, #mail-popup::after {
+                font-size: 2rem; /* Smaller floating hearts */
             }
             .mail-container { 
                 width: 95%;
@@ -942,10 +1089,97 @@
                 top: 60px;
                 left: 15px;
                 right: 15px;
+                line-height: 1.8; /* Adjust line height for readability */
             }
             .envelope.opening .letter-paper {
                 bottom: 40px;
                 opacity: 1;
+            }
+            .sweet-message {
+                font-size: 1.1rem;
+            }
+            .letter-subtitle {
+                font-size: 0.9rem;
+            }
+            #content {
+                min-height: auto; /* Allow natural height on mobile */
+                justify-content: flex-start; /* Start from top when multiple sections */
+                padding-top: 20px;
+            }
+        }
+
+        /* Additional media query for very small screens (e.g., phones < 480px) */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 3rem;
+            }
+            h2 {
+                font-size: 2.5rem;
+            }
+            #typewriter {
+                font-size: 1.2rem;
+            }
+            .letter {
+                padding: 15px;
+                font-size: 1rem;
+            }
+            .photos {
+                grid-template-columns: 1fr; /* Single column for very small screens */
+            }
+            .reasons {
+                grid-template-columns: 1fr;
+            }
+            .big-heart {
+                font-size: 5rem;
+            }
+            #question-section {
+                padding: 20px 10px;
+            }
+            .btn {
+                padding: 8px 20px;
+                font-size: 1rem;
+            }
+            #pin-section {
+                padding: 20px 10px;
+            }
+            .keypad {
+                gap: 8px;
+            }
+            .key-btn {
+                padding: 8px;
+                font-size: 1rem;
+            }
+            .claw-machine {
+                height: 450px;
+            }
+            .game-area {
+                height: 250px;
+            }
+            .controls-panel {
+                padding: 10px;
+                gap: 10px;
+            }
+            .arrow-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            .seize-btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+            .mail-container {
+                max-width: 100%;
+            }
+            .envelope {
+                height: 250px;
+            }
+            .letter-paper {
+                height: 200px;
+            }
+            .paper-content {
+                font-size: 0.85rem;
+                top: 50px;
             }
         }
 
