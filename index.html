@@ -667,6 +667,7 @@
         
         .envelope.opening .envelope-flap-top {
             transform: rotateX(-180deg);
+            z-index: -1;
         }
         
         @keyframes flapOpen {
@@ -757,7 +758,7 @@
         
         .letter-paper {
             position: absolute;
-            bottom: -300px;
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
             width: 85%;
@@ -770,6 +771,7 @@
             border: 2px solid #ffd1dc;
             border-bottom: none;
             overflow: hidden;
+            opacity: 0;
         }
         
         .letter-paper::before {
@@ -820,6 +822,7 @@
         
         .envelope.opening .letter-paper {
             bottom: 50px;
+            opacity: 1;
         }
         
         .letter-paper.slide-out {
@@ -927,7 +930,8 @@
             .letter-paper {
                 width: 80%;
                 height: 240px;
-                bottom: -240px;
+                bottom: 40px;
+                opacity: 0;
             }
             .letter-paper::after {
                 font-size: 2rem;
@@ -941,7 +945,15 @@
             }
             .envelope.opening .letter-paper {
                 bottom: 40px;
+                opacity: 1;
             }
+        }
+
+        #content {
+            min-height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -977,7 +989,7 @@
 
         <!-- PIN section -->
         <section id="pin-section" style="display:none;">
-            <h3>YAYY, i have a message for u</h3>
+            <h3>YAYY, i have a somethingg for u</h3>
             <p>Type the password to continue (hint: 8 ANGKAA YANGG I MINTAA)</p>
             <div class="pin-display">
                 <div class="dot"></div>
@@ -1040,7 +1052,7 @@
                 </div>
             </div>
             
-            <div class="game-status" id="gameStatus">Move the claw left or right, then press "SEIZE MY HEART"!</div>
+            <div class="game-status" id="gameStatus">PRESS "SEIZE MY HEART"!</div>
         </section>
 
         <!-- MAIL POPUP -->
@@ -1063,28 +1075,28 @@
             <div class="letter">
                 <p>Dear Beverly,</p>
                 <br>
-                <p>I made this whole website for u because sometimes words aren't enough to tell u how much u mean to me. Every pixel, every line of code, every little detail.. it's all made by someone who reallyy lovee u</p>
+                <p>I made this wholee website for u cuzz sometimes words aren't enough to tell u how much u mean to mee. Every pixel, every line of code, every little detail.. it's all made by someone who reallyy' lovee u</p>
                 <br>
-                <p>u are thee prettiest,cutestt girll i have everr met. u madee my day everyytimee i talk to uu, everytimee i playy withh uu.</p>
+                <p>u are thee prettiest, cutestt girll EVERR i have everr knownn. u madee my day everyytimee i talk to uu, everytimee i playy withh uu.</p>
                 <br>
-                <p>thankss yaa sudaa hadirr dii hidupp i and being my safe place, my favorite person, my favoritee roamerr & middlanee. now i can't even imagine what would i be if u ever leave me, so please don't do thatt..</p>
+                <p>thankss yaa sudaa hadirr dii hidupp i and being my safe place, my favorite person, my favoritee roamerr & middlaneer. now i can't even imagine what would i be if u ever leave me, so please don't do thatt..</p>
                 <br>
-                <p>ingatt yaa i lovee u moree thann yesterdayy, andd I'll lovee uu evenn moree tomorrowww.</p>
+                <p>andd ingatt yaa i lovee u moree thann yesterdayy, andd I'll lovee uu evenn moree tomorrowww.</p>
                 <br>
                 <p>HAPPYY VALENTINEE!!</p>
                 <br>
-                <p>Forever yourss,<br>Ko filbertt 🤍</p>
+                <p>Forever yourss,<br>Koo filbertt 🤍</p>
             </div>
         </section>
 
         <section id="memories" style="display:none;">
-            <h2>Our Beautiful Memories</h2>
+            <h2>NII FOTOO FOTOO</h2>
             <div class="photos">
                 <!-- Replace these links with your real photos (upload to imgur.com → right click → copy image address) -->
-                <img src="https://via.placeholder.com/400x500/FFB6C1/ffffff?text=Our+First+Date" alt="Memory 1">
-                <img src="https://via.placeholder.com/400x500/FF69B4/ffffff?text=That+Trip+Together" alt="Memory 2">
-                <img src="https://via.placeholder.com/400x500/FFD1DC/ffffff?text=You+&+Me" alt="Memory 3">
-                <img src="https://via.placeholder.com/400x500/667eea/ffffff?text=Best+Day+Ever" alt="Memory 4">
+                <img src="https://via.placeholder.com/400x500/FFB6C1/ffffff?text=Our+First+Date" alt="FIRSTT TIMEE WE TALKK">
+                <img src="https://via.placeholder.com/400x500/FF69B4/ffffff?text=That+Trip+Together" alt="MABARR EMELL">
+                <img src="https://via.placeholder.com/400x500/FFD1DC/ffffff?text=You+&+Me" alt="ROBLOXX">
+                <img src="https://via.placeholder.com/400x500/667eea/ffffff?text=Best+Day+Ever" alt="NEWW YEARR BARENGG">
                 <!-- Add as many as you want -->
             </div>
         </section>
@@ -1129,7 +1141,7 @@
         // Enter site
         function enterSite() {
             document.getElementById("landing").style.display = "none";
-            document.getElementById("content").style.display = "block";
+            document.getElementById("content").style.display = "flex";
             // Show music button after entering
             document.getElementById("music-btn").style.display = "flex";
             // Keeps image background
@@ -1207,7 +1219,7 @@
         setInterval(() => {
             const heart = document.createElement("div");
             heart.className = "heart-fall";
-            heart.innerHTML = ["❤️","💕","💖","🩷","✨"][Math.floor(Math.random()*5)];
+            heart.innerHTML = ["❤️","🅱️","💖","💌","✨","🤍"][Math.floor(Math.random()*5)];
             heart.style.left = Math.random() * 100 + "vw";
             heart.style.animationDuration = Math.random() * 4 + 4 + "s";
             document.body.appendChild(heart);
@@ -1218,7 +1230,7 @@
         function confettiBurst() {
             for(let j = 0; j < 80; j++) {
                 const c = document.createElement("div");
-                c.innerHTML = ["❤️","💕","💖","🩷","✨","🌸"][Math.floor(Math.random()*6)];
+                c.innerHTML = ["❤️","🅱️","💖","💌","✨","🤍"][Math.floor(Math.random()*6)];
                 c.style.position = "fixed";
                 c.style.left = Math.random() * 100 + "vw";
                 c.style.top = "-10px";
@@ -1244,7 +1256,7 @@
             if (clawPosition > 15) {
                 clawPosition -= 10;
                 updateClawPosition();
-                gameStatus.textContent = "Keep going... 💕";
+                gameStatus.textContent = "AYOO SEMANGATTT!!";
             }
         }
 
@@ -1253,7 +1265,7 @@
             if (clawPosition < 85) {
                 clawPosition += 10;
                 updateClawPosition();
-                gameStatus.textContent = "Almost there... 💗";
+                gameStatus.textContent = "SEDIKITT LAGIII!!";
             }
         }
 
@@ -1265,7 +1277,7 @@
             if (isSeizing) return;
             
             isSeizing = true;
-            gameStatus.textContent = "Seizing... 🎯";
+            gameStatus.textContent = "SEDANGG MEREBUTT";
             
             // Disable controls
             document.getElementById('btnLeft').disabled = true;
@@ -1281,7 +1293,7 @@
                 
                 if (distance < 15) {
                     // Success! Caught the heart
-                    gameStatus.textContent = "You caught it! 💝";
+                    gameStatus.textContent = "KERENNN!!";
                     prizeHeart.classList.add('caught');
                     
                     // Move heart up with claw
@@ -1298,14 +1310,14 @@
                     
                 } else {
                     // Missed! Try again
-                    gameStatus.textContent = "So close! Try aligning it better! 💔";
+                    gameStatus.textContent = "YAHH TIDAA KENAA, lagii lagii";
                     
                     setTimeout(() => {
                         clawString.style.height = '40px';
                         
                         setTimeout(() => {
                             isSeizing = false;
-                            gameStatus.textContent = "Move the claw and try again!";
+                            gameStatus.textContent = "COBAA LAGIII!!";
                             
                             // Re-enable controls
                             document.getElementById('btnLeft').disabled = false;
@@ -1325,11 +1337,15 @@
             envelope.classList.remove('opening');
             const letterPaper = mailPopup.querySelector('.letter-paper');
             letterPaper.classList.remove('slide-out');
+            const seal = mailPopup.querySelector('.red-seal');
+            seal.style.display = 'flex';
             
             mailPopup.style.display = 'flex';
         }
 
         function closeMail() {
+            const seal = document.querySelector('.red-seal');
+            seal.style.display = 'none';
             const envelope = document.querySelector('.envelope');
             const letterPaper = document.querySelector('.letter-paper');
             
